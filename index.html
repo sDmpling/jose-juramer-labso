@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose Juramer Labso — DevOps Platform Engineer & IT Specialist</title>
+<meta name="description" content="Portfolio of Jose Juramer E. Labso — DevOps Platform Engineer / Technical Support at Trend Micro. Platform support, automation, telemetry analytics, and IT services.">
+<style>
+  :root {
+    --bg: #0b1120;
+    --bg-soft: #111a2e;
+    --card: #16203a;
+    --card-border: #233252;
+    --text: #e6ebf5;
+    --muted: #9aa7c0;
+    --accent: #4cc9c9;
+    --accent-2: #7aa2ff;
+    --highlight: #ffd166;
+    --radius: 14px;
+    --maxw: 1080px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11, 17, 32, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-border);
+  }
+  nav .inner {
+    max-width: var(--maxw); margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.8rem 1.5rem;
+  }
+  nav .brand { font-weight: 700; letter-spacing: 0.04em; color: var(--text); font-size: 1.05rem; }
+  nav .brand span { color: var(--accent); }
+  nav .links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  nav .links a { color: var(--muted); font-size: 0.92rem; }
+  nav .links a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ---------- Layout ---------- */
+  section { padding: 4.5rem 1.5rem 0; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; }
+  .section-title {
+    font-size: 1.5rem; font-weight: 700; margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .section-title::after {
+    content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--card-border), transparent);
+  }
+  .section-title .tag { color: var(--accent); font-size: 0.9rem; }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    background:
+      radial-gradient(900px 420px at 85% -10%, rgba(124, 162, 255, 0.18), transparent 60%),
+      radial-gradient(700px 380px at 10% 110%, rgba(76, 201, 201, 0.14), transparent 60%),
+      var(--bg);
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); letter-spacing: -0.01em; }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .role {
+    margin-top: 0.8rem; font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    color: var(--muted); font-weight: 400;
+  }
+  .hero .role strong { color: var(--text); font-weight: 600; }
+  .hero .contact-line { margin-top: 1.4rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; font-size: 0.98rem; color: var(--text); }
+  .hero .contact-line a { color: var(--text); }
+  .hero .contact-line a:hover { color: var(--accent); text-decoration: none; }
+  .cta { margin-top: 2.2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 0.7rem 1.5rem; border-radius: 999px;
+    font-weight: 600; font-size: 0.95rem; transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary { background: var(--accent); color: #06121a; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(76, 201, 201, 0.35); text-decoration: none; }
+  .btn-outline { border: 1px solid var(--card-border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+
+  /* ---------- About ---------- */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-text p { color: var(--muted); margin-bottom: 1rem; }
+  .about-text p strong { color: var(--text); font-weight: 600; }
+  .facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem;
+  }
+  .fact { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 0.9rem 1rem; }
+  .fact .k { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .fact .v { font-weight: 600; margin-top: 0.15rem; color: var(--text); }
+
+  /* ---------- Cards ---------- */
+  .card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius); padding: 1.6rem; margin-bottom: 1.4rem;
+  }
+  .card h3 { font-size: 1.15rem; margin-bottom: 0.25rem; }
+  .card .sub { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.1rem; }
+  .card .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.9rem; }
+  .card ul { list-style: none; }
+  .card ul li { position: relative; padding-left: 1.3rem; margin-bottom: 0.6rem; color: var(--muted); }
+  .card ul li::before {
+    content: ""; position: absolute; left: 0; top: 0.62em;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); opacity: 0.8;
+  }
+  .card ul li strong { color: var(--text); font-weight: 600; }
+
+  .chip {
+    display: inline-block; padding: 0.3rem 0.85rem; margin: 0 0.55rem 0.55rem 0;
+    background: var(--bg-soft); border: 1px solid var(--card-border); border-radius: 999px;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+  @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ---------- Timeline ---------- */
+  .timeline { position: relative; padding-left: 1.6rem; }
+  .timeline::before {
+    content: ""; position: absolute; left: 6px; top: 0.4rem; bottom: 0.4rem;
+    width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    opacity: 0.35;
+  }
+  .timeline .t-item { position: relative; margin-bottom: 1.4rem; }
+  .timeline .t-item::before {
+    content: ""; position: absolute; left: -1.6rem; top: 0.55rem;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent);
+  }
+  .t-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .t-head .when { color: var(--accent-2); font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 5rem; padding: 2.5rem 1.5rem; text-align: center;
+    border-top: 1px solid var(--card-border); color: var(--muted); font-size: 0.92rem;
+  }
+  footer a { color: var(--text); }
+  footer a:hover { color: var(--accent); }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="inner">
+    <a class="brand" href="#top">Jose<span>.</span>Labso</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <h1>Jose Juramer <span class="accent">E. Labso</span></h1>
+  <p class="role">DevOps Platform Engineer / Technical Support at <strong>Trend Micro</strong><br>
+    IT Specialist · Automation · Data Analytics</p>
+  <div class="contact-line">
+    <span>📞 +63 915 239 6623</span>
+    <a href="mailto:joselabso@gmail.com">📧 joselabso@gmail.com</a>
+    <span>📍 Lopez, Quezon, Philippines</span>
+  </div>
+  <div class="cta">
+    <a class="btn btn-primary" href="#contact">Get in touch</a>
+    <a class="btn btn-outline" href="#experience">View experience</a>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <h2 class="section-title"><span class="tag">01</span> About Me</h2>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>DevOps Platform Engineer and Technical Support specialist at <strong>Trend Micro</strong>, providing platform-level support and monitoring for Trend Life services while collaborating with engineering teams on deployments and incident response.</p>
+        <p>I automate away operational bottlenecks — from a Chrome extension that translates customer support chats in real time across <strong>70+ languages</strong>, to an <strong>Azure telemetry platform</strong> that turns anonymous product events into funnel insight and triage dashboards. I also support <strong>AI Governance</strong> initiatives, reviewing AI use cases and contributing to responsible-AI guidelines.</p>
+        <p>Beyond the platform work, I bring years of hands-on IT service experience: computer system servicing (NC II), network setup and administration, graphic design, and video editing.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="k">Date of Birth</div><div class="v">Sept 15, 2000</div></div>
+        <div class="fact"><div class="k">Place of Birth</div><div class="v">Lopez, Quezon, PH</div></div>
+        <div class="fact"><div class="k">Age / Gender</div><div class="v">25 · Male</div></div>
+        <div class="fact"><div class="k">Civil Status</div><div class="v">Single</div></div>
+        <div class="fact"><div class="k">Citizenship</div><div class="v">Filipino</div></div>
+        <div class="fact"><div class="k">Religion</div><div class="v">Born Again Christian</div></div>
+        <div class="fact"><div class="k">Eligibility</div><div class="v">CSC-PPT Professional, 2023</div></div>
+        <div class="fact"><div class="k">Certification</div><div class="v">NC II — Comp. Sys. Servicing</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <h2 class="section-title"><span class="tag">02</span> Work Experience</h2>
+    <div class="reveal">
+      <div class="card">
+        <div class="t-head">
+          <h3>DevOps Platform Engineer / Technical Support</h3>
+          <span class="when">2025 — Present</span>
+        </div>
+        <div class="sub">Trend Micro</div>
+        <ul>
+          <li><strong>Platform support &amp; monitoring</strong> for Trend Life services — collaborating with engineering teams on deployments and incident response.</li>
+          <li><strong>AI Governance</strong> — reviewing AI use cases and contributing to responsible-AI guidelines for the department.</li>
+          <li><strong>JTranslator</strong> — a Chrome extension (Manifest V3, service worker, content scripts) for a live Trend Life customer-support environment that auto-translates inbound messages and provides one-click translated replies across 70+ languages, removing the language barrier in real time and solving an operational triage bottleneck on a closed third-party chat UI (Dynamics 365 Omnichannel).</li>
+          <li><strong>Containment-Activation Analytics</strong> — an Azure telemetry platform for a customer-facing activation guide that turns anonymous events into funnel insight and triage dashboards. Owned its production outage to restoration: hardened ingestion, session correlation, and end-to-end incident response (Flask, Cosmos DB, App Service, GitHub Actions; managed identity, no secrets).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col reveal">
+      <div class="card">
+        <h3>Freelance</h3>
+        <div class="meta">2019 — 2024</div>
+        <ul>
+          <li>Graphic Designing</li>
+          <li>Computer System Servicing</li>
+          <li>Data Encoder</li>
+          <li>Video Editing</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>OJT &amp; Work Immersion</h3>
+        <ul>
+          <li><strong>IT Consultant Intern</strong> — National Bureau of Investigation, Quezon City <span class="meta" style="display:inline">(Mar 2023 · 500 hrs)</span></li>
+          <li><strong>Technical Support &amp; Teacher Assistant</strong> — Lopez West Elementary School Bldg. 1, Lopez, Quezon <span class="meta" style="display:inline">(Feb 2019 · 80 hrs)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <h2 class="section-title"><span class="tag">03</span> Key Projects</h2>
+    <div class="two-col reveal">
+      <div class="card">
+        <div class="sub">Automation · Chrome Extension</div>
+        <h3>JTranslator</h3>
+        <div class="meta">Manifest V3 · Service Worker · Content Scripts</div>
+        <ul>
+          <li>Real-time auto-translation of inbound customer messages in a live Trend Life support environment.</li>
+          <li>One-click translated replies across <strong>70+ languages</strong> via a closed third-party chat UI (Dynamics 365 Omnichannel).</li>
+          <li>Targeted automation that removed an operational triage bottleneck.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="sub">Azure · Data · Telemetry</div>
+        <h3>Containment-Activation Analytics</h3>
+        <div class="meta">Flask · Cosmos DB · App Service · GitHub Actions</div>
+        <ul>
+          <li>Azure telemetry platform for a customer-facing activation guide.</li>
+          <li>Anonymous events turned into <strong>funnel insight and triage dashboards</strong>.</li>
+          <li>Owned production outage to restoration: hardened ingestion, session correlation, end-to-end incident response — managed identity, no secrets.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title"><span class="tag">04</span> Skills</h2>
+    <div class="two-col reveal">
+      <div class="card">
+        <h3>🛠 Technical &amp; Infrastructure</h3>
+        <div style="margin-top:0.8rem">
+          <span class="chip">Computer System Servicing (NC II)</span>
+          <span class="chip">Network Setup &amp; Administration</span>
+          <span class="chip">Hardware / Software Troubleshooting</span>
+          <span class="chip">CI/CD Tools</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">Azure Services</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>💻 Development</h3>
+        <div style="margin-top:0.8rem">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">PHP</span>
+          <span class="chip">Vibe Coding</span>
+        </div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h3>💬 Soft Skills</h3>
+      <div style="margin-top:0.8rem">
+        <span class="chip">Strong Verbal &amp; Written Communication</span>
+        <span class="chip">Documentation &amp; Runbooks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="wrap">
+    <h2 class="section-title"><span class="tag">05</span> Education &amp; Credentials</h2>
+    <div class="timeline reveal">
+      <div class="t-item">
+        <div class="t-head">
+          <h3>BS in Information Technology</h3>
+          <span class="when">2019 — 2023</span>
+        </div>
+        <div class="sub">Polytechnic University of the Philippines — Lopez Campus, Lopez, Quezon</div>
+      </div>
+      <div class="t-item">
+        <div class="t-head">
+          <h3>Senior High School</h3>
+          <span class="when">2017 — 2019</span>
+        </div>
+        <div class="sub">Lopez National Comprehensive High School — Maharlika Hwy, Brgy. Magsaysay, Lopez, Quezon</div>
+      </div>
+      <div class="t-item">
+        <div class="t-head">
+          <h3>Eligibility</h3>
+          <span class="when">Aug 2023</span>
+        </div>
+        <div class="sub">CSC Paper and Pencil Test — 2nd Level <span style="color:var(--muted)">(CSC-PPT Professional)</span></div>
+      </div>
+      <div class="t-item">
+        <div class="t-head">
+          <h3>National Certificate II</h3>
+          <span class="when">Feb 2019</span>
+        </div>
+        <div class="sub">Computer Systems Servicing (NC II)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MORE ================= -->
+<section id="more">
+  <div class="wrap">
+    <h2 class="section-title"><span class="tag">06</span> Trainings, Recognition &amp; Leadership</h2>
+    <div class="two-col reveal">
+      <div class="card">
+        <h3>🎓 Trainings &amp; Seminars</h3>
+        <ul>
+          <li><strong>Steering Your Future:</strong> Upholding Workers' Rights and Responsibilities <span class="meta" style="display:inline">(Sep 2023)</span></li>
+          <li><strong>Digital Literacy:</strong> Introduction to Data Analytics <span class="meta" style="display:inline">(Jan 2023)</span></li>
+          <li><strong>Internet Media and Information Technology</strong> <span class="meta" style="display:inline">(Jan 2023)</span></li>
+          <li><strong>Data Analytics &amp; Becoming a Data Analyst</strong> — incl. video presentation &amp; mobile cross-platform app development <span class="meta" style="display:inline">(Jan 2023)</span></li>
+          <li><strong>Social Science Explorations, Innovations &amp; Technological Advances toward Research 4.0</strong> <span class="meta" style="display:inline">(May 2022)</span></li>
+          <li><strong>Discipleship Course (Growth Path)</strong> — Jesus is Alive Community <span class="meta" style="display:inline">(Dec 2016)</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="card">
+          <h3>🏆 Recognitions</h3>
+          <ul>
+            <li><strong>Certificate of Appreciation</strong> — Resource Speaker, YWAV Lopez Camp "ALL OUT" <span class="meta" style="display:inline">(Dec 2022)</span></li>
+            <li><strong>Certificate of Participation</strong> — DEPED CALABARZON Regional Festival of Talents (RFOT), Computer System Servicing <span class="meta" style="display:inline">(Nov 2018)</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🤝 Affiliations</h3>
+          <ul>
+            <li><strong>Vice-President</strong> — Youth With A Vision, PUP-Lopez, Quezon <span class="meta" style="display:inline">(2019–2020)</span></li>
+            <li><strong>President</strong> — Lopez National Comprehensive High School, Lopez, Quezon <span class="meta" style="display:inline">(2018–2019)</span></li>
+            <li><strong>Vice-President</strong> — Youth With A Vision, LNCHS <span class="meta" style="display:inline">(2017–2018)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="card reveal" style="text-align:center; padding:3rem 1.5rem">
+      <h2 class="section-title" style="justify-content:center"><span class="tag">07</span> Let's Connect</h2>
+      <p style="color:var(--muted); max-width:560px; margin:0 auto 1.6rem">
+        Open to opportunities in DevOps, platform engineering, technical support, and IT services.
+        I'd love to hear about your project or team.
+      </p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap">
+        <a class="btn btn-primary" href="mailto:joselabso@gmail.com">Email me</a>
+        <a class="btn btn-outline" href="tel:+639152396623">Call +63 915 239 6623</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> Jose Juramer E. Labso — Built with HTML &amp; CSS. <a href="#top">Back to top ↑</a></p>
+</footer>
+
+<script>
+  // Current year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  // Close nothing — single page, smooth scroll handles anchors.
+</script>
+</body>
+</html>
